@@ -1,88 +1,93 @@
-# GitHub 项目介绍：上传并生成视频
+以下是对该 GitHub 项目的结构化解读和使用指南，已优化为清晰的中文说明：
 
-## 项目概述
+---
 
-本项目是基于 [comfyUI-WanAPI](https://github.com/Brender1925/comfyUI-WanAPI) 的增强版本，在原功能基础上增加了多项实用功能。核心功能仍然是利用阿里云通义千问API实现图像到视频的生成。
+### **项目核心功能**
+基于阿里云通义千问API实现「图像→视频」生成，在原版[comfyUI-WanAPI](https://github.com/Brender1925/comfyUI-WanAPI)基础上增强用户体验和监控能力。
 
-## 新增功能
+---
 
-1. **步骤提示增强**：
-   - 在视频生成过程中增加了详细的步骤提示
-   - 每个关键步骤都有明确的进度反馈
-2. **时间显示功能**：
-   - 实时显示各步骤耗时
-   - 总耗时统计功能
-3. **API-KEY 直接填写**：
-   - 在ComfyUI界面中直接输入API-KEY
-   - 无需修改代码或设置环境变量
-4. **用户体验优化**：
-   - 更友好的错误提示
-   - 生成状态可视化
+### **新增亮点功能**
+1. **进度可视化**
+   - 关键步骤实时提示（如上传、生成、下载）
+   - 每个阶段显示完成百分比
+2. **耗时统计**
+   - 各步骤精确计时（如API调用耗时、视频处理时间）
+   - 终端输出总耗时报告
+3. **密钥便捷输入**
+   - 无需修改代码：直接在ComfyUI界面填写API-KEY
+   - 兼容环境变量`DASHSCOPE_API_KEY`方式
+4. **错误友好提示**
+   - 网络超时/密钥错误等场景给出明确解决方案
 
-## 源仓库说明
+---
 
-本项目基于 [comfyUI-WanAPI](https://github.com/Brender1925/comfyUI-WanAPI) 进行二次开发，主要保留了原项目的核心功能：
-
-- 图像上传至阿里云OSS
-- 通过DashScope API生成视频
-- 视频下载和处理功能
-
-## 功能特点
-
-1. **图像上传**：支持将用户上传的图像保存为临时文件，并上传至阿里云 OSS。
-2. **视频生成**：通过 DashScope API，根据用户提供的提示词和参数生成视频。
-3. **视频下载**：生成的视频可以直接下载到本地。
-4. **视频处理**：将下载的视频处理为 ComfyUI 格式，方便后续使用。
-5. **性能监控**：记录每个步骤的耗时，方便用户了解整个流程的效率。
-
-## 安装方法
-
-### 作为ComfyUI自定义节点安装
-
-```bash
-# 进入ComfyUI自定义节点目录
-cd ComfyUI/custom_nodes
-
-# 克隆本仓库
-git clone https://github.com/msola-ht/ComfyUI-Wan-API.git
-
-# 安装依赖
-pip install -r requirements.txt
+### **完整工作流程**
+```mermaid
+graph TD
+    A[上传图像至阿里云OSS] --> B[调用DashScope API生成视频]
+    B --> C[下载视频到本地]
+    C --> D[转换为ComfyUI兼容格式]
 ```
 
-完成后重启ComfyUI，新节点将出现在节点选择菜单中。
+---
 
-## 使用说明
+### **安装步骤（3分钟完成）**
+1. 进入ComfyUI自定义节点目录：
+   ```bash
+   cd ComfyUI/custom_nodes
+   ```
+2. 克隆本仓库：
+   ```bash
+   git clone https://github.com/msola-ht/ComfyUI-Wan-API.git
+   ```
+3. 安装依赖：
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. 重启ComfyUI后即可在节点菜单中找到新功能
 
-### 1. 注册阿里云并获取 API 密钥
+---
 
-1. 打开 [通义千问控制台](https://bailian.console.aliyun.com/#/home)
-2. 点击右上角"新用户开通即享每个模型100万免费Tokens"的"立即开通"
-3. 注册或者登陆阿里云账号
-4. 获取API Key
-   - 前往"我的API-KEY"页面，单击"创建我的API-KEY"
-   - 在已创建的API Key操作列，单击"查看"，获取API KEY
-   - ![API KEY获取示例](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/0240945471/p943033.png)
-   - 具体参考 [API密钥管理页面](https://bailian.console.aliyun.com/?spm=5176.29619931.J__Z58Z6CX7MY__Ll8p1ZOR.1.64e9521cEc4QyE&tab=api#/api)
+### **API密钥获取指南**
+1. 访问[通义千问控制台](https://bailian.console.aliyun.com/#/home)
+2. 完成新用户注册（享100万免费Tokens）
+3. 在[API密钥管理页](https://bailian.console.aliyun.com/?tab=api#/api)创建并复制密钥
+   ![](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/0240945471/p943033.png)
 
-### 2. 配置 API 密钥
+---
 
-在使用前，需要配置 DashScope API 密钥。可以通过以下两种方式提供：
-- 在代码中直接输入 API 密钥。
-- 设置环境变量 `DASHSCOPE_API_KEY`。
+### **参数配置说明**
+| 参数名          | 类型   | 必填 | 可选值/范围                               | 备注                        |
+| --------------- | ------ | ---- | ----------------------------------------- | --------------------------- |
+| `api_key`       | 字符串 | 是   | -                                         | 建议通过界面输入            |
+| `model_name`    | 枚举   | 是   | `wanx2.1-i2v-turbo`<br>`wanx2.1-i2v-plus` | 默认turbo版                 |
+| `duration`      | 整数   | 是   | turbo版:3-5秒<br>plus版:仅5秒             | 注意模型限制                |
+| `resolution`    | 枚举   | 是   | `480P`, `720P`                            | plus版强制720P,影响生成质量 |
+| `prompt_extend` | 布尔   | 是   | True/False                                | 是否自动扩展提示词          |
 
-### 3. 调用方法
+---
 
-使用 `UploadAndGenerateVideo` 类的 `upload_and_generate` 方法，传入以下参数：
-- `image`: 输入图像（格式为 IMAGE）。
-- `api_key`: DashScope API 密钥（字符串）。
-- `model_name`: 选择模型（可选值：`wanx2.1-i2v-turbo`, `wanx2.1-i2v-plus`）。
-- `prompt`: 提示词（字符串）。
-- `resolution`: 视频分辨率（可选值：`480P`, `720P`）。
-- `duration`: 视频时长（整数，范围：3-5秒）。
-- `prompt_extend`: 是否扩展提示（布尔值）。
-- `seed`: 随机种子（整数）。
+### **不同模型特性对比**
+| 模型版本          | 生成速度      | 支持时长 | 适合场景     |
+| ----------------- | ------------- | -------- | ------------ |
+| wanx2.1-i2v-turbo | 快（约120秒） | 3/4/5秒  | 快速原型制作 |
+| wanx2.1-i2v-plus  | 慢（约7分钟） | 固定5秒  | 高质量输出   |
 
-## 联系方式
+---
 
-如有任何问题或建议，请通过 GitHub 联系我们。感谢您的关注与支持！
+### **常见问题处理**
+
+1. **生成失败**
+   - 检查阿里云账户余额（免费额度是否用完）
+   - 确认分辨率不超过720P
+2. **视频模糊**
+   - 尝试更换提示词（英文提示词效果更佳）
+   - 选择plus模型获得更高质量
+3. **超时错误**
+   - 适当延长ComfyUI请求超时时间
+   - 检查网络是否能访问阿里云API
+
+---
+
+- 如需进一步帮助，欢迎在GitHub提交Issue。
