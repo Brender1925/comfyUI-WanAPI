@@ -73,6 +73,11 @@ graph TD
 
 ---
 
+### **工作流**
+
+![](https://github.com/msola-ht/ComfyUI-Wan-API/blob/c1c5e98896a5387cb178dd061a124dd5ba65c322/workflow/workflow.png)
+
+
 ### **常见问题处理**
 
 1. **生成失败**
