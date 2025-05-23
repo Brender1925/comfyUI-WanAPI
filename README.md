@@ -1,8 +1,5 @@
-以下是对该 GitHub 项目的结构化解读和使用指南，已优化为清晰的中文说明：
-
----
-
 ### **项目核心功能**
+
 基于阿里云通义千问API实现「图像→视频」生成，在原版[comfyUI-WanAPI](https://github.com/Brender1925/comfyUI-WanAPI)基础上增强用户体验和监控能力。
 
 ---
