@@ -128,131 +128,6 @@
       ]
     },
     {
-      "id": 41,
-      "type": "UploadAndGenerateVideo",
-      "pos": [
-        -1560,
-        2520
-      ],
-      "size": [
-        400,
-        256
-      ],
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [
-        {
-          "label": "image",
-          "localized_name": "image",
-          "name": "image",
-          "type": "IMAGE",
-          "link": 45
-        },
-        {
-          "label": "api_key",
-          "localized_name": "api_key",
-          "name": "api_key",
-          "type": "STRING",
-          "widget": {
-            "name": "api_key"
-          },
-          "link": null
-        },
-        {
-          "label": "model_name",
-          "localized_name": "model_name",
-          "name": "model_name",
-          "type": "COMBO",
-          "widget": {
-            "name": "model_name"
-          },
-          "link": null
-        },
-        {
-          "label": "prompt",
-          "localized_name": "prompt",
-          "name": "prompt",
-          "type": "STRING",
-          "widget": {
-            "name": "prompt"
-          },
-          "link": null
-        },
-        {
-          "label": "resolution",
-          "localized_name": "resolution",
-          "name": "resolution",
-          "type": "COMBO",
-          "widget": {
-            "name": "resolution"
-          },
-          "link": null
-        },
-        {
-          "label": "duration",
-          "localized_name": "duration",
-          "name": "duration",
-          "type": "INT",
-          "widget": {
-            "name": "duration"
-          },
-          "link": null
-        },
-        {
-          "label": "prompt_extend",
-          "localized_name": "prompt_extend",
-          "name": "prompt_extend",
-          "type": "COMBO",
-          "widget": {
-            "name": "prompt_extend"
-          },
-          "link": null
-        },
-        {
-          "label": "seed",
-          "localized_name": "seed",
-          "name": "seed",
-          "type": "INT",
-          "widget": {
-            "name": "seed"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "label": "video_file",
-          "localized_name": "video_file",
-          "name": "video_file",
-          "type": "VIDEO",
-          "links": [
-            46
-          ]
-        }
-      ],
-      "properties": {
-        "aux_id": "msola-ht/ComfyUI-Wan-API",
-        "ver": "0917fa24f22415c5a808d4452e40c95666905530",
-        "Node name for S&R": "UploadAndGenerateVideo",
-        "widget_ue_connectable": {}
-      },
-      "widgets_values": [
-        "sk-3accf2f2c55a44fab1b4928e1fd90d75",
-        "wanx2.1-i2v-turbo",
-        "一只猫在草地上奔跑",
-        "720P",
-        5,
-        "true",
-        291850442,
-        "randomize",
-        [
-          false,
-          true
-        ]
-      ]
-    },
-    {
       "id": 39,
       "type": "Note",
       "pos": [
@@ -417,6 +292,131 @@
           }
         }
       }
+    },
+    {
+      "id": 41,
+      "type": "UploadAndGenerateVideo",
+      "pos": [
+        -1560,
+        2520
+      ],
+      "size": [
+        400,
+        256
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "image",
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": 45
+        },
+        {
+          "label": "api_key",
+          "localized_name": "api_key",
+          "name": "api_key",
+          "type": "STRING",
+          "widget": {
+            "name": "api_key"
+          },
+          "link": null
+        },
+        {
+          "label": "model_name",
+          "localized_name": "model_name",
+          "name": "model_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "model_name"
+          },
+          "link": null
+        },
+        {
+          "label": "prompt",
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": null
+        },
+        {
+          "label": "resolution",
+          "localized_name": "resolution",
+          "name": "resolution",
+          "type": "COMBO",
+          "widget": {
+            "name": "resolution"
+          },
+          "link": null
+        },
+        {
+          "label": "duration",
+          "localized_name": "duration",
+          "name": "duration",
+          "type": "INT",
+          "widget": {
+            "name": "duration"
+          },
+          "link": null
+        },
+        {
+          "label": "prompt_extend",
+          "localized_name": "prompt_extend",
+          "name": "prompt_extend",
+          "type": "COMBO",
+          "widget": {
+            "name": "prompt_extend"
+          },
+          "link": null
+        },
+        {
+          "label": "seed",
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "video_file",
+          "localized_name": "video_file",
+          "name": "video_file",
+          "type": "VIDEO",
+          "links": [
+            46
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "msola-ht/ComfyUI-Wan-API",
+        "ver": "0917fa24f22415c5a808d4452e40c95666905530",
+        "Node name for S&R": "UploadAndGenerateVideo",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "sk-",
+        "wanx2.1-i2v-turbo",
+        "一只猫在草地上散步",
+        "720P",
+        5,
+        "true",
+        291850442,
+        "randomize",
+        [
+          false,
+          true
+        ]
+      ]
     }
   ],
   "links": [
@@ -465,15 +465,21 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.8769226950000008,
+      "scale": 0.8769226950000005,
       "offset": [
-        2118.1988826202805,
-        -2240.3311166055482
+        1970,
+        -2410
       ]
     },
     "groupNodes": {},
     "ue_links": [],
-    "links_added_by_ue": []
+    "links_added_by_ue": [],
+    "workspace_info": {
+      "id": "o2Kn84pKOJXy0mbd89K61",
+      "saveLock": false,
+      "cloudID": null,
+      "coverMediaPath": null
+    }
   },
   "version": 0.4
 }
